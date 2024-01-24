@@ -20,7 +20,7 @@ public class Proyecto extends JFrame{
     
     private void initializeComps() {
         JPanel panel = new JPanel(); //Panel
-        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));     //Centrar panel
+        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS)); //Centrar panel
         panel.setPreferredSize(new Dimension(600,10)); // Modificar preferred size para las posiciones de los elementos
         
         renderHeader(panel);
@@ -39,22 +39,25 @@ public class Proyecto extends JFrame{
     private void renderHeader(JPanel MainPanel) {
         JPanel HeaderPanel = new JPanel(); // We create a Panel for the first row
         HeaderPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); 
-        JLabel etiqueta = new JLabel("Formulario para ingresar datos personales");
-        etiqueta.setFont(new Font("Verdana", Font.PLAIN, 20));
-        etiqueta.setBounds(0, 0, 640, 50);
-        etiqueta.setForeground(Color.white);
-        etiqueta.setBackground(Colores.darkBlue);
-        etiqueta.setOpaque(true);
-        HeaderPanel.add(etiqueta);
+        HeaderPanel.setBackground(Colores.turquoise);
+        JLabel label = new JLabel("Formulario para ingresar datos personales");
+        label.setFont(new Font("Verdana", Font.PLAIN, 20));
+        label.setBounds(0, 0, 640, 50);
+        label.setForeground(Color.white);
+        label.setBackground(Colores.turquoise);
+        label.setOpaque(true);
+        HeaderPanel.add(label);
         MainPanel.add(HeaderPanel);
     }
     
     private void renderCode(JPanel MainPanel) {
         JPanel firstRowPanel = new JPanel(); // We create a Panel for the first row
         firstRowPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        firstRowPanel.setBackground(Color.yellow);
+        firstRowPanel.setBackground(Colores.almond);
         JLabel codeLabel = new JLabel("Ingrese su código: ");
         codeLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
+        codeLabel.setForeground(Colores.liver);
+        codeLabel.setBackground(Colores.almond);
         //codeLabel.setBounds(0, 55, 640, 50);
         codeLabel.setOpaque(true);
         JTextField codeField = new JTextField();
@@ -70,9 +73,10 @@ public class Proyecto extends JFrame{
     private void renderNames(JPanel MainPanel) {
         JPanel SecondRowPanel = new JPanel(); // We create a Panel for the first row
         SecondRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        SecondRowPanel.setBackground(Color.RED);
+        SecondRowPanel.setBackground(Colores.almond);
         JLabel NamesLabel = new JLabel("Ingrese su nombre y apellido: ");
         NamesLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
+        NamesLabel.setBackground(Colores.almond);
        // NamesLabel.setBounds(0, 100, 640, 50);
         NamesLabel.setOpaque(true);
         JTextField NamesField = new JTextField();
@@ -87,10 +91,11 @@ public class Proyecto extends JFrame{
      private void renderBirthdate(JPanel MainPanel) {
         JPanel ThirdRowPanel = new JPanel(); // We create a Panel for the first row
         ThirdRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        ThirdRowPanel.setBackground(Color.MAGENTA);
+        ThirdRowPanel.setBackground(Colores.almond);
         JLabel BirthdateLabel = new JLabel("Ingrese su fecha de nacimiento: ");
         BirthdateLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-       // NamesLabel.setBounds(0, 100, 640, 50);
+        BirthdateLabel.setBackground(Colores.almond);
+      
         BirthdateLabel.setOpaque(true);
         JTextField BirthdateField = new JTextField();
         BirthdateField.setPreferredSize(new Dimension(150, 30));
@@ -104,10 +109,11 @@ public class Proyecto extends JFrame{
      private void renderBirthdatePlace(JPanel MainPanel) {
         JPanel FourthdRowPanel = new JPanel(); // We create a Panel for the first row
         FourthdRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        FourthdRowPanel.setBackground(Color.PINK);
+        FourthdRowPanel.setBackground(Colores.almond);
         JLabel BirthdatePlaceLabel = new JLabel("Ingrese su lugar de nacimiento: ");
         BirthdatePlaceLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-       // NamesLabel.setBounds(0, 100, 640, 50);
+        BirthdatePlaceLabel.setBackground(Colores.almond);
+      
         BirthdatePlaceLabel.setOpaque(true);
         JTextField BirthdatePlaceField = new JTextField();
         BirthdatePlaceField.setPreferredSize(new Dimension(150, 30));
@@ -120,10 +126,11 @@ public class Proyecto extends JFrame{
      private void renderRoomAddress(JPanel MainPanel) {
         JPanel FifthdRowPanel = new JPanel(); // We create a Panel for the first row
         FifthdRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        FifthdRowPanel.setBackground(Color.cyan);
-        JLabel RoomAddressLabel = new JLabel("Ingrese su número de habitación ");
+        FifthdRowPanel.setBackground(Colores.almond);
+        JLabel RoomAddressLabel = new JLabel("Ingrese su número de habitación: ");
         RoomAddressLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-       // NamesLabel.setBounds(0, 100, 640, 50);
+        RoomAddressLabel.setBackground(Colores.almond);
+      
         RoomAddressLabel.setOpaque(true);
         JTextField RoomAddressField = new JTextField();
         RoomAddressField.setPreferredSize(new Dimension(150, 30));
@@ -136,10 +143,11 @@ public class Proyecto extends JFrame{
      private void renderEmail(JPanel MainPanel) {
         JPanel SixthdRowPanel = new JPanel(); // We create a Panel for the first row
         SixthdRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        SixthdRowPanel.setBackground(Color.cyan);
-        JLabel EmailLabel = new JLabel("Ingrese su Email ");
+        SixthdRowPanel.setBackground(Colores.almond);
+        JLabel EmailLabel = new JLabel("Ingrese su Email : ");
         EmailLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-       // NamesLabel.setBounds(0, 100, 640, 50);
+        EmailLabel.setBackground(Colores.almond);
+      
         EmailLabel.setOpaque(true);
         JTextField EmailField = new JTextField();
         EmailField.setPreferredSize(new Dimension(150, 30));
@@ -152,10 +160,11 @@ public class Proyecto extends JFrame{
      private void renderPhone(JPanel MainPanel) {
         JPanel SeventhRowPanel = new JPanel(); // We create a Panel for the first row
         SeventhRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        SeventhRowPanel.setBackground(Color.GREEN);
-        JLabel PhoneLabel = new JLabel("Ingrese su número telefónico ");
+        SeventhRowPanel.setBackground(Colores.almond);
+        JLabel PhoneLabel = new JLabel("Ingrese su número telefónico :");
         PhoneLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-       // NamesLabel.setBounds(0, 100, 640, 50);
+        PhoneLabel.setBackground(Colores.almond);
+    
         PhoneLabel.setOpaque(true);
         JTextField PhoneField = new JTextField();
         PhoneField.setPreferredSize(new Dimension(150, 30));
@@ -169,10 +178,11 @@ public class Proyecto extends JFrame{
      private void renderID(JPanel MainPanel) {
         JPanel EighthRowPanel = new JPanel(); // We create a Panel for the first row
         EighthRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        EighthRowPanel.setBackground(Color.GREEN);
-        JLabel IDLabel = new JLabel("Ingrese su número de cédula ");
+        EighthRowPanel.setBackground(Colores.almond);
+        JLabel IDLabel = new JLabel("Ingrese su número de cédula :");
         IDLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-       // NamesLabel.setBounds(0, 100, 640, 50);
+        IDLabel.setBackground(Colores.almond);
+     
         IDLabel.setOpaque(true);
         JTextField IDField = new JTextField();
         IDField.setPreferredSize(new Dimension(150, 30));
