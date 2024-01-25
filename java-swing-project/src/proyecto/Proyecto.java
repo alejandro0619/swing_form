@@ -2,39 +2,44 @@ package proyecto;
 import java.awt.*;
 import java.net.URL;
 import javax.swing.*;
-import javax.swing.BoxLayout;
+
 
 public class Proyecto extends JFrame{
     public Proyecto() {
      
-      URL iconURL = getClass().getResource("/resources/notepad.png"); //Buscar recurso del icono
-      Image icon = new javax.swing.ImageIcon(iconURL).getImage(); //Identificar una imagen con un recurso
-      this.setIconImage(icon); //establecer un icono 
-      this.setSize(640,512); //Tamaño de la ventana
-      this.setTitle("Datos Personales"); // Titulo de la ventana
-      this.setLocationRelativeTo(null); // Ubicar la ventana en el centro de la pantalla
-      this.setDefaultCloseOperation(EXIT_ON_CLOSE); // Terminar la ejecucion del programa cuando se cierre la ventana 
-      this.setResizable(true); //Establecer la ventana no modificable en tamaño
-      initializeComps(); // llamar componentes
+        URL iconURL = getClass().getResource("/resources/notepad.png"); //Buscar recurso del icono
+        Image icon = new javax.swing.ImageIcon(iconURL).getImage(); //Identificar una imagen con un recurso
+        this.setIconImage(icon); //establecer un icono 
+        this.setSize(640,512); //Tamaño de la ventana
+        this.setTitle("Datos Personales"); // Titulo de la ventana
+        this.setLocationRelativeTo(null); // Ubicar la ventana en el centro de la pantalla
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE); // Terminar la ejecucion del programa cuando se cierre la ventana 
+      // set min and max size
+        this.setMinimumSize(new Dimension(640,512)); //Establecer el tamaño minimo de la ventana
+        this.setMaximumSize(new Dimension(740,612)); //Establecer el tamaño maximo de la ventana
+        this.setResizable(false); //Establecer la ventana no modificable en tamaño
+        initializeComps(); // llamar componentes
     }
     
     private void initializeComps() {
         JPanel panel = new JPanel(); //Panel
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS)); //Centrar panel
-        panel.setPreferredSize(new Dimension(600,10)); // Modificar preferred size para las posiciones de los elementos
-        
+
         renderHeader(panel);
-        renderCode(panel);
-        renderID(panel);
-        renderNames(panel);
-        renderBirthdate(panel);
-        renderBirthdatePlace(panel);
-        renderRoomAddress(panel);
-        renderEmail(panel);
-        renderPhone(panel);
-        
-        this.getContentPane().add(panel); //Agregar el ScrollPanel al content panel     
-         
+        new RenderForm("Código", panel);
+        new RenderForm("Cédula", panel);
+        new RenderForm("Nombres y Apellidos", panel);
+        new RenderForm("Fecha de nacimiento", panel);
+        new RenderForm("Lugar de nacimiento", panel);
+        new RenderForm("Dirección de habitación", panel);
+        new RenderForm("E-mail", panel);
+        new RenderForm("Número de celular", panel);
+
+        // add a scrollpanel
+        JScrollPane scrollPane = new JScrollPane(panel); //Crear un ScrollPanel
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); //Establecer la barra de desplazamiento vertical
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED); //Establecer la barra de desplazamiento horizontal
+        this.getContentPane().add(scrollPane); //Agregar el ScrollPanel al content panel   
     }
     private void renderHeader(JPanel MainPanel) {
         JPanel HeaderPanel = new JPanel(); // We create a Panel for the first row
@@ -49,147 +54,4 @@ public class Proyecto extends JFrame{
         HeaderPanel.add(label);
         MainPanel.add(HeaderPanel);
     }
-    
-    private void renderCode(JPanel MainPanel) {
-        JPanel firstRowPanel = new JPanel(); // We create a Panel for the first row
-        firstRowPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        firstRowPanel.setBackground(Colores.almond);
-        JLabel codeLabel = new JLabel("Ingrese su código: ");
-        codeLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-        codeLabel.setForeground(Colores.liver);
-        codeLabel.setBackground(Colores.almond);
-        //codeLabel.setBounds(0, 55, 640, 50);
-        codeLabel.setOpaque(true);
-        JTextField codeField = new JTextField();
-        codeField.setPreferredSize(new Dimension(150, 30));
-        
-        // Add the components to the panel
-        firstRowPanel.add(codeLabel);
-        firstRowPanel.add(codeField);
-        // Render it to the main frame (panel being rendered)
-        MainPanel.add(firstRowPanel);
-    }
-    
-    private void renderNames(JPanel MainPanel) {
-        JPanel SecondRowPanel = new JPanel(); // We create a Panel for the first row
-        SecondRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        SecondRowPanel.setBackground(Colores.almond);
-        JLabel NamesLabel = new JLabel("Ingrese su nombre y apellido: ");
-        NamesLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-        NamesLabel.setBackground(Colores.almond);
-       // NamesLabel.setBounds(0, 100, 640, 50);
-        NamesLabel.setOpaque(true);
-        JTextField NamesField = new JTextField();
-        NamesField.setPreferredSize(new Dimension(150, 30));
-        // Add the components to the panel
-        SecondRowPanel.add(NamesLabel);
-        SecondRowPanel.add(NamesField);
-        // Render it to the main frame (panel being rendered)
-        MainPanel.add(SecondRowPanel);
-    }
-    
-     private void renderBirthdate(JPanel MainPanel) {
-        JPanel ThirdRowPanel = new JPanel(); // We create a Panel for the first row
-        ThirdRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        ThirdRowPanel.setBackground(Colores.almond);
-        JLabel BirthdateLabel = new JLabel("Ingrese su fecha de nacimiento: ");
-        BirthdateLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-        BirthdateLabel.setBackground(Colores.almond);
-      
-        BirthdateLabel.setOpaque(true);
-        JTextField BirthdateField = new JTextField();
-        BirthdateField.setPreferredSize(new Dimension(150, 30));
-        // Add the components to the panel
-        ThirdRowPanel.add(BirthdateLabel);
-        ThirdRowPanel.add(BirthdateField);
-        // Render it to the main frame (panel being rendered)
-        MainPanel.add(ThirdRowPanel);
-    }
-     
-     private void renderBirthdatePlace(JPanel MainPanel) {
-        JPanel FourthdRowPanel = new JPanel(); // We create a Panel for the first row
-        FourthdRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        FourthdRowPanel.setBackground(Colores.almond);
-        JLabel BirthdatePlaceLabel = new JLabel("Ingrese su lugar de nacimiento: ");
-        BirthdatePlaceLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-        BirthdatePlaceLabel.setBackground(Colores.almond);
-      
-        BirthdatePlaceLabel.setOpaque(true);
-        JTextField BirthdatePlaceField = new JTextField();
-        BirthdatePlaceField.setPreferredSize(new Dimension(150, 30));
-        // Add the components to the panel
-        FourthdRowPanel.add(BirthdatePlaceLabel);
-        FourthdRowPanel.add(BirthdatePlaceField);
-        // Render it to the main frame (panel being rendered)
-        MainPanel.add(FourthdRowPanel);
-    }
-     private void renderRoomAddress(JPanel MainPanel) {
-        JPanel FifthdRowPanel = new JPanel(); // We create a Panel for the first row
-        FifthdRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        FifthdRowPanel.setBackground(Colores.almond);
-        JLabel RoomAddressLabel = new JLabel("Ingrese su número de habitación: ");
-        RoomAddressLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-        RoomAddressLabel.setBackground(Colores.almond);
-      
-        RoomAddressLabel.setOpaque(true);
-        JTextField RoomAddressField = new JTextField();
-        RoomAddressField.setPreferredSize(new Dimension(150, 30));
-        // Add the components to the panel
-        FifthdRowPanel.add(RoomAddressLabel);
-        FifthdRowPanel.add(RoomAddressField);
-        // Render it to the main frame (panel being rendered)
-        MainPanel.add(FifthdRowPanel);
-    }
-     private void renderEmail(JPanel MainPanel) {
-        JPanel SixthdRowPanel = new JPanel(); // We create a Panel for the first row
-        SixthdRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        SixthdRowPanel.setBackground(Colores.almond);
-        JLabel EmailLabel = new JLabel("Ingrese su Email : ");
-        EmailLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-        EmailLabel.setBackground(Colores.almond);
-      
-        EmailLabel.setOpaque(true);
-        JTextField EmailField = new JTextField();
-        EmailField.setPreferredSize(new Dimension(150, 30));
-        // Add the components to the panel
-        SixthdRowPanel.add(EmailLabel);
-        SixthdRowPanel.add(EmailField);
-        // Render it to the main frame (panel being rendered)
-        MainPanel.add(SixthdRowPanel);
-    }
-     private void renderPhone(JPanel MainPanel) {
-        JPanel SeventhRowPanel = new JPanel(); // We create a Panel for the first row
-        SeventhRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        SeventhRowPanel.setBackground(Colores.almond);
-        JLabel PhoneLabel = new JLabel("Ingrese su número telefónico :");
-        PhoneLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-        PhoneLabel.setBackground(Colores.almond);
-    
-        PhoneLabel.setOpaque(true);
-        JTextField PhoneField = new JTextField();
-        PhoneField.setPreferredSize(new Dimension(150, 30));
-        // Add the components to the panel
-        SeventhRowPanel.add(PhoneLabel);
-        SeventhRowPanel.add(PhoneField);
-        // Render it to the main frame (panel being rendered)
-        MainPanel.add(SeventhRowPanel);
-    }
-     
-     private void renderID(JPanel MainPanel) {
-        JPanel EighthRowPanel = new JPanel(); // We create a Panel for the first row
-        EighthRowPanel.setLayout( new FlowLayout(FlowLayout.LEFT, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        EighthRowPanel.setBackground(Colores.almond);
-        JLabel IDLabel = new JLabel("Ingrese su número de cédula :");
-        IDLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-        IDLabel.setBackground(Colores.almond);
-     
-        IDLabel.setOpaque(true);
-        JTextField IDField = new JTextField();
-        IDField.setPreferredSize(new Dimension(150, 30));
-        // Add the components to the panel
-        EighthRowPanel.add(IDLabel);
-        EighthRowPanel.add(IDField);
-        // Render it to the main frame (panel being rendered)
-        MainPanel.add(EighthRowPanel); 
-     }
 }
