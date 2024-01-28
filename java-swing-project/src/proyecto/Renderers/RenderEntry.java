@@ -1,9 +1,13 @@
-package proyecto;
+package proyecto.Renderers;
 
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
+
+import proyecto.Colores;
+import proyecto.ShowHint;
+
 import javax.swing.JPanel;
 import javax.swing.InputVerifier;
 import javax.swing.JLabel;

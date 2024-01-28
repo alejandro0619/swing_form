@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\juan\\Desktop\\swing_form-main(1)\\swing_form-main\\java-swing-project\\libs\\swingx.jar"
+    ]
+}

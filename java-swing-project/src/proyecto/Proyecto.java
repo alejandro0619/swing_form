@@ -3,6 +3,11 @@ import java.awt.*;
 import java.net.URL;
 import javax.swing.*;
 
+import proyecto.Renderers.RenderBloodType;
+import proyecto.Renderers.RenderCalendar;
+import proyecto.Renderers.RenderEntry;
+import proyecto.Renderers.RenderGender;
+
 
 public class Proyecto extends JFrame{
     public Proyecto() {
@@ -35,7 +40,8 @@ public class Proyecto extends JFrame{
         RenderEntry direccion = new RenderEntry("Dirección de habitación:","Ingrese su dirección de habitación", panel, new Verify.MaxLengthVerifier(100));
         RenderEntry email = new RenderEntry("E-mail:","Ingrese su e-mail", panel, new Verify.EmailVerifier());
         RenderEntry telefono = new RenderEntry("Número de celular:","Ingrese su número de celular", panel, new Verify.TelefonoVerifier());
-
+        RenderGender sexo = new RenderGender(panel);
+        RenderBloodType sangre = new RenderBloodType(panel);
         // add a scrollpanel
         JScrollPane scrollPane = new JScrollPane(panel); //Crear un ScrollPanel
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); //Establecer la barra de desplazamiento vertical

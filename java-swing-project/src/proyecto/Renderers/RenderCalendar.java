@@ -1,4 +1,4 @@
-package proyecto;
+package proyecto.Renderers;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
@@ -7,6 +7,10 @@ import javax.swing.UIManager;
 import org.jdesktop.swingx.JXDatePicker;
 import org.jdesktop.swingx.plaf.basic.CalendarHeaderHandler;
 import org.jdesktop.swingx.plaf.basic.SpinningCalendarHeaderHandler;
+
+import proyecto.Colores;
+import proyecto.ShowHint;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.text.SimpleDateFormat;
@@ -21,7 +25,7 @@ public class RenderCalendar {
         
         JPanel RowPanel = new JPanel(); // We create a Panel for the first row
         RowPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        RowPanel.setBackground(Colores.almond);
+        RowPanel.setBackground(proyecto.Colores.almond);
     
         //We create the component label
         JLabel CompLabel = new JLabel(LabelText);
