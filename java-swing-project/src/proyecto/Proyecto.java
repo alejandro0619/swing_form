@@ -5,8 +5,11 @@ import javax.swing.*;
 
 import proyecto.Renderers.RenderBloodType;
 import proyecto.Renderers.RenderCalendar;
+import proyecto.Renderers.RenderCedula;
 import proyecto.Renderers.RenderEntry;
 import proyecto.Renderers.RenderGender;
+import proyecto.Renderers.RenderSeparator;
+import proyecto.Renderers.RenderTextArea;
 
 
 public class Proyecto extends JFrame{
@@ -32,7 +35,7 @@ public class Proyecto extends JFrame{
 
         renderHeader(panel);
         RenderEntry codigo = new RenderEntry("Código:", "Ingrese su código", panel, new Verify.CodigoVerifier());
-        RenderEntry cedula = new RenderEntry("Cédula:", "Ingrese su cédula", panel, new Verify.CedulaVerifier());
+        RenderCedula cedula = new RenderCedula("Cédula:", "Ingrese su cédula", panel, new Verify.CedulaVerifier());
         RenderEntry nombre =new RenderEntry("Nombres:","Ingrese sus nombres", panel, new Verify.MaxLengthVerifier(25));
         RenderEntry apellido =new RenderEntry("Apellidos:","Ingrese sus apellidos", panel, new Verify.MaxLengthVerifier(25));
         RenderCalendar fechaNacimiento =new RenderCalendar("Fecha de nacimiento:", panel);
@@ -42,6 +45,11 @@ public class Proyecto extends JFrame{
         RenderEntry telefono = new RenderEntry("Número de celular:","Ingrese su número de celular", panel, new Verify.TelefonoVerifier());
         RenderGender sexo = new RenderGender(panel);
         RenderBloodType sangre = new RenderBloodType(panel);
+        RenderSeparator separator1 = new RenderSeparator("Notas Adicionales:", panel);
+        RenderTextArea enfermedades = new RenderTextArea("Enfermedades:", panel, new Verify.MaxLengthAreaVerifier(500));
+        RenderTextArea alergias = new RenderTextArea("Alergias:", panel, new Verify.MaxLengthAreaVerifier(500));
+        RenderTextArea notas = new RenderTextArea("Otras Notas:", panel, new Verify.MaxLengthAreaVerifier(500));
+        
         // add a scrollpanel
         JScrollPane scrollPane = new JScrollPane(panel); //Crear un ScrollPanel
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); //Establecer la barra de desplazamiento vertical

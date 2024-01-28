@@ -3,6 +3,7 @@ package proyecto;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Verify {
@@ -82,6 +83,31 @@ public class Verify {
         }
     }
 
+
+   //Verificador de caracteres, recibe como parámetro la longitud maxima
+   public static class MaxLengthAreaVerifier extends InputVerifier {
+    private int maxLength;
+
+    public MaxLengthAreaVerifier(int maxLength) {
+        this.maxLength = maxLength;
+    }
+
+    @Override
+    public boolean verify(JComponent input) {
+        JTextArea textArea = (JTextArea) input;
+
+        if (textArea.getText().length()<= maxLength) {
+            return true;
+        }
+        
+
+        else {
+            JOptionPane.showMessageDialog(null, "El campo no debe tener más de "+maxLength+ " caracteres", "Alerta: Dato Incorrecto", JOptionPane.WARNING_MESSAGE);
+            textArea.setText("");
+            return false;
+        }
+    }
+}
 
 
     // Verificador de correo electrónico
