@@ -2,7 +2,6 @@ package proyecto;
 import java.awt.*;
 import java.net.URL;
 import javax.swing.*;
-import static proyecto.RenderForm.RenderForm;
 
 
 public class Proyecto extends JFrame{
@@ -27,14 +26,15 @@ public class Proyecto extends JFrame{
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS)); //Centrar panel
 
         renderHeader(panel);
-        RenderForm("Código:", "Ingrese su código", panel);
-        RenderForm("Cédula:", "Ingrese su cédula", panel);
-        RenderForm("Nombres y Apellidos:","Ingrese sus nombres y apellidos", panel);
-        RenderForm("Fecha de nacimiento:","Ingrese su fecha de nacimiento", panel);
-        RenderForm("Lugar de nacimiento:","Ingrese su lugar de nacimiento", panel);
-        RenderForm("Dirección de habitación:","Ingrese su dirección de habitación", panel);
-        RenderForm("E-mail:","Ingrese su e-mail", panel);
-        RenderForm("Número de celular:","Ingrese su número de celular", panel);
+        RenderEntry codigo = new RenderEntry("Código:", "Ingrese su código", panel, new Verify.CodigoVerifier());
+        RenderEntry cedula = new RenderEntry("Cédula:", "Ingrese su cédula", panel, new Verify.CedulaVerifier());
+        RenderEntry nombre =new RenderEntry("Nombres:","Ingrese sus nombres", panel, new Verify.MaxLengthVerifier(25));
+        RenderEntry apellido =new RenderEntry("Apellidos:","Ingrese sus apellidos", panel, new Verify.MaxLengthVerifier(25));
+        RenderCalendar fechaNacimiento =new RenderCalendar("Fecha de nacimiento:", panel);
+        RenderEntry lugarNacimiento = new RenderEntry("Lugar de nacimiento:","Ingrese su lugar de nacimiento", panel, new Verify.MaxLengthVerifier(25));
+        RenderEntry direccion = new RenderEntry("Dirección de habitación:","Ingrese su dirección de habitación", panel, new Verify.MaxLengthVerifier(100));
+        RenderEntry email = new RenderEntry("E-mail:","Ingrese su e-mail", panel, new Verify.EmailVerifier());
+        RenderEntry telefono = new RenderEntry("Número de celular:","Ingrese su número de celular", panel, new Verify.TelefonoVerifier());
 
         // add a scrollpanel
         JScrollPane scrollPane = new JScrollPane(panel); //Crear un ScrollPanel
