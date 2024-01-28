@@ -63,7 +63,7 @@ public class Proyecto extends JFrame{
         JLabel label = new JLabel("Formulario para ingresar datos personales");
         label.setFont(new Font("Verdana", Font.PLAIN, 20));
         label.setBounds(0, 0, 640, 50);
-        label.setForeground(Color.white);
+        label.setForeground(Color.black);
         label.setBackground(Colores.turquoise);
         label.setOpaque(true);
         HeaderPanel.add(label);

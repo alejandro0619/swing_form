@@ -13,9 +13,10 @@ public static Color lightBlue = new Color(211,222,255,255);
 public static Color darkYellow = new Color(179,128,54,255);
 public static Color lightYellow = new Color(255,184,77,255);
 
-public static Color turquoise = new Color(143, 192, 169, 255);
-public static Color almond = new Color(239, 222, 205, 255);
-public static Color beaver = new Color (159, 129, 112, 255);
+// public static Color turquoise = new Color(194, 255, 226, 255);
+public static Color turquoise = new Color(206, 221, 224,255);
+public static Color almond = new Color(247, 238, 233, 255);
+public static Color beaver = new Color (240, 221, 211, 255);
 public static Color liver = new Color(83, 75, 79, 255);
 public static Color brown = new Color (115, 87, 81, 255);
 
