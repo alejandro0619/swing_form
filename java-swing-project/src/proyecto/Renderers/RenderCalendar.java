@@ -47,7 +47,7 @@ public class RenderCalendar {
         picker.getEditor().setInputVerifier(inputVerifier);
         ShowHint.setHint("Seleccione la fecha de nacimiento",picker.getEditor());
         picker.setPreferredSize(new Dimension(250, 30));//After using the setEnabled(false) method, the FormattedTextField is visually disabled too, rendering the text in a transparent, blue-ish tone, this method overrides that color, making it look as if it wasn't disabled
-        picker.setBackground(Colors.formbg);
+        picker.getEditor().setBackground(Colors.formbg);
 
         // Add the components to the panel
         RowPanel.add(CompLabel);
