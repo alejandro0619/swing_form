@@ -5,7 +5,7 @@ import java.awt.*;
  *
  * @author juan y pastaExplosivaBooom
  */
-public class Colores {
+public class Colors {
 
 public static Color darkBlue = new Color(54,85,179,255);
 public static Color  midBlue = new Color(77,77,255,255);

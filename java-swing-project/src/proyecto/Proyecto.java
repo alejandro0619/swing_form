@@ -5,7 +5,7 @@ import javax.swing.*;
 
 import proyecto.Renderers.RenderBloodType;
 import proyecto.Renderers.RenderCalendar;
-import proyecto.Renderers.RenderCedula;
+import proyecto.Renderers.RenderID;
 import proyecto.Renderers.RenderEntry;
 import proyecto.Renderers.RenderGender;
 import proyecto.Renderers.RenderSeparator;
@@ -34,21 +34,22 @@ public class Proyecto extends JFrame{
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS)); //Centrar panel
 
         renderHeader(panel);
-        RenderEntry codigo = new RenderEntry("Código:", "Ingrese su código", panel, new Verify.CodigoVerifier());
-        RenderCedula cedula = new RenderCedula("Cédula:", "Ingrese su cédula", panel, new Verify.CedulaVerifier());
-        RenderEntry nombre =new RenderEntry("Nombres:","Ingrese sus nombres", panel, new Verify.MaxLengthVerifier(25));
-        RenderEntry apellido =new RenderEntry("Apellidos:","Ingrese sus apellidos", panel, new Verify.MaxLengthVerifier(25));
-        RenderCalendar fechaNacimiento =new RenderCalendar("Fecha de nacimiento:", panel);
-        RenderEntry lugarNacimiento = new RenderEntry("Lugar de nacimiento:","Ingrese su lugar de nacimiento", panel, new Verify.MaxLengthVerifier(25));
-        RenderEntry direccion = new RenderEntry("Dirección de habitación:","Ingrese su dirección de habitación", panel, new Verify.MaxLengthVerifier(100));
-        RenderEntry email = new RenderEntry("E-mail:","Ingrese su e-mail", panel, new Verify.EmailVerifier());
-        RenderEntry telefono = new RenderEntry("Número de celular:","Ingrese su número de celular", panel, new Verify.TelefonoVerifier());
-        RenderGender sexo = new RenderGender(panel);
-        RenderBloodType sangre = new RenderBloodType(panel);
-        RenderSeparator separator1 = new RenderSeparator("Notas Adicionales:", panel);
-        RenderTextArea enfermedades = new RenderTextArea("Enfermedades:", panel, new Verify.MaxLengthAreaVerifier(500));
-        RenderTextArea alergias = new RenderTextArea("Alergias:", panel, new Verify.MaxLengthAreaVerifier(500));
-        RenderTextArea notas = new RenderTextArea("Otras Notas:", panel, new Verify.MaxLengthAreaVerifier(500));
+        
+        new RenderEntry("Código:", "Ingrese su código", panel, new Verify.CodigoVerifier());
+        new RenderID("Cédula:", "Ingrese su cédula", panel, new Verify.CedulaVerifier());
+        new RenderEntry("Nombres:","Ingrese sus nombres", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Apellidos:","Ingrese sus apellidos", panel, new Verify.MaxLengthVerifier(25));
+        new RenderCalendar("Fecha de nacimiento:", panel);
+        new RenderEntry("Lugar de nacimiento:","Ingrese su lugar de nacimiento", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Dirección de habitación:","Ingrese su dirección de habitación", panel, new Verify.MaxLengthVerifier(100));
+        new RenderEntry("E-mail:","Ingrese su e-mail", panel, new Verify.EmailVerifier());
+        new RenderEntry("Número de celular:","Ingrese su número de celular", panel, new Verify.TelefonoVerifier());
+        new RenderGender(panel);
+        new RenderBloodType(panel);
+        new RenderSeparator("Notas Adicionales:", panel);
+        new RenderTextArea("Enfermedades:", panel, new Verify.MaxLengthAreaVerifier(500));
+        new RenderTextArea("Alergias:", panel, new Verify.MaxLengthAreaVerifier(500));
+        new RenderTextArea("Otras Notas:", panel, new Verify.MaxLengthAreaVerifier(500));
         
         // add a scrollpanel
         JScrollPane scrollPane = new JScrollPane(panel); //Crear un ScrollPanel
@@ -59,12 +60,12 @@ public class Proyecto extends JFrame{
     private void renderHeader(JPanel MainPanel) {
         JPanel HeaderPanel = new JPanel(); // We create a Panel for the first row
         HeaderPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); 
-        HeaderPanel.setBackground(Colores.turquoise);
+        HeaderPanel.setBackground(Colors.turquoise);
         JLabel label = new JLabel("Formulario para ingresar datos personales");
         label.setFont(new Font("Verdana", Font.PLAIN, 20));
         label.setBounds(0, 0, 640, 50);
         label.setForeground(Color.white);
-        label.setBackground(Colores.turquoise);
+        label.setBackground(Colors.turquoise);
         label.setOpaque(true);
         HeaderPanel.add(label);
         MainPanel.add(HeaderPanel);

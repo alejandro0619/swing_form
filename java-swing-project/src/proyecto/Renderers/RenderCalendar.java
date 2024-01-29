@@ -8,7 +8,7 @@ import org.jdesktop.swingx.JXDatePicker;
 import org.jdesktop.swingx.plaf.basic.CalendarHeaderHandler;
 import org.jdesktop.swingx.plaf.basic.SpinningCalendarHeaderHandler;
 
-import proyecto.Colores;
+import proyecto.Colors;
 import proyecto.ShowHint;
 
 import java.awt.Dimension;
@@ -25,12 +25,12 @@ public class RenderCalendar {
         
         JPanel RowPanel = new JPanel(); // We create a Panel for the first row
         RowPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        RowPanel.setBackground(proyecto.Colores.almond);
+        RowPanel.setBackground(proyecto.Colors.almond);
     
         //We create the component label
         JLabel CompLabel = new JLabel(LabelText);
         CompLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-        CompLabel.setBackground(Colores.almond);
+        CompLabel.setBackground(Colors.almond);
         CompLabel.setOpaque(true);
         CompLabel.setHorizontalAlignment(JLabel.RIGHT);
         CompLabel.setPreferredSize(new Dimension(260,30));
