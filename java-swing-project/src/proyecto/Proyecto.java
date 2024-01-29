@@ -35,15 +35,15 @@ public class Proyecto extends JFrame{
 
         renderHeader(panel);
         
-        new RenderEntry("Código:", "Ingrese su código", panel, new Verify.CodigoVerifier());
-        new RenderID("Cédula:", "Ingrese su cédula", panel, new Verify.CedulaVerifier());
-        new RenderEntry("Nombres:","Ingrese sus nombres", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Apellidos:","Ingrese sus apellidos", panel, new Verify.MaxLengthVerifier(25));
-        new RenderCalendar("Fecha de nacimiento:", panel);
-        new RenderEntry("Lugar de nacimiento:","Ingrese su lugar de nacimiento", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Dirección de habitación:","Ingrese su dirección de habitación", panel, new Verify.MaxLengthVerifier(100));
-        new RenderEntry("E-mail:","Ingrese su e-mail", panel, new Verify.EmailVerifier());
-        new RenderEntry("Número de celular:","Ingrese su número de celular", panel, new Verify.TelefonoVerifier());
+        new RenderEntry("Código ", "Ingrese su código", panel, new Verify.CodigoVerifier());
+        new RenderID("Cédula ", "Ingrese su cédula", panel, new Verify.CedulaVerifier());
+        new RenderEntry("Nombres ","Ingrese sus nombres", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Apellidos ","Ingrese sus apellidos", panel, new Verify.MaxLengthVerifier(25));
+        new RenderCalendar("Fecha de nacimiento ", panel);
+        new RenderEntry("Lugar de nacimiento ","Ingrese su lugar de nacimiento", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Dirección de habitación ","Ingrese su dirección de habitación", panel, new Verify.MaxLengthVerifier(100));
+        new RenderEntry("E-mail ","Ingrese su e-mail", panel, new Verify.EmailVerifier());
+        new RenderEntry("Número de celular ","Ingrese su número de celular", panel, new Verify.TelefonoVerifier());
         new RenderGender(panel);
         new RenderBloodType(panel);
         new RenderSeparator("Notas Adicionales:", panel);
@@ -60,12 +60,12 @@ public class Proyecto extends JFrame{
     private void renderHeader(JPanel MainPanel) {
         JPanel HeaderPanel = new JPanel(); // We create a Panel for the first row
         HeaderPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); 
-        HeaderPanel.setBackground(Colors.turquoise);
-        JLabel label = new JLabel("Formulario para ingresar datos personales");
-        label.setFont(new Font("Verdana", Font.PLAIN, 20));
+        HeaderPanel.setBackground(Colors.headerbg);
+        JLabel label = new JLabel("FORMULARIO DE DATOS PERSONALES");
+        label.setFont(new Font("Verdana", Font.BOLD, 20));
         label.setBounds(0, 0, 640, 50);
         label.setForeground(Color.white);
-        label.setBackground(Colors.turquoise);
+        label.setBackground(Colors.headerbg);
         label.setOpaque(true);
         HeaderPanel.add(label);
         MainPanel.add(HeaderPanel);
