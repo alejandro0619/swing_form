@@ -3,6 +3,7 @@ import java.awt.*;
 import java.net.URL;
 import javax.swing.*;
 
+import proyecto.Verify.CalendarVerifier;
 import proyecto.Renderers.RenderBloodType;
 import proyecto.Renderers.RenderCalendar;
 import proyecto.Renderers.RenderCedula;
@@ -39,7 +40,8 @@ public class Proyecto extends JFrame{
         RenderCedula cedula = new RenderCedula("Cédula:", "Ingrese la cédula del estudiante", panel, new Verify.CedulaVerifier());
         RenderEntry nombre =new RenderEntry("Nombres:","Ingrese los nombres del estudiante", panel, new Verify.MaxLengthVerifier(25));
         RenderEntry apellido =new RenderEntry("Apellidos:","Ingrese los apellidos del estudiante", panel, new Verify.MaxLengthVerifier(25));
-        RenderCalendar fechaNacimiento =new RenderCalendar("Fecha de nacimiento:", panel);
+        CalendarVerifier calendarVerifier = new CalendarVerifier();
+        RenderCalendar fechaNacimiento =new RenderCalendar("Fecha de nacimiento:", panel, new Verify.CalendarVerifier());
         RenderEntry lugarNacimiento = new RenderEntry("Lugar de nacimiento:","Ingrese el lugar de nacimiento del estudiante", panel, new Verify.MaxLengthVerifier(25));
         RenderEntry direccion = new RenderEntry("Dirección de habitación:","Ingrese la dirección del estudiante", panel, new Verify.MaxLengthVerifier(100));
         RenderEntry email = new RenderEntry("E-mail:","Ingrese el e-mail del estudiante", panel, new Verify.EmailVerifier());

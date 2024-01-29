@@ -1,6 +1,8 @@
 package proyecto.Renderers;
 import java.awt.Color;
 import java.awt.FlowLayout;
+
+import javax.swing.InputVerifier;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
@@ -10,6 +12,7 @@ import org.jdesktop.swingx.plaf.basic.SpinningCalendarHeaderHandler;
 
 import proyecto.Colores;
 import proyecto.ShowHint;
+import proyecto.Verify;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -21,7 +24,7 @@ import java.util.Locale;
 public class RenderCalendar {
     
 
-    public RenderCalendar(String LabelText, JPanel MainPanel){
+    public RenderCalendar(String LabelText, JPanel MainPanel, InputVerifier inputVerifier){
         
         JPanel RowPanel = new JPanel(); // We create a Panel for the first row
         RowPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
@@ -41,7 +44,8 @@ public class RenderCalendar {
         picker.getMonthView().setZoomable(true); //This line of code, and the UIManager one enable an experimental feature to allow yearly navigation through the calendar
         picker.setFormats(new SimpleDateFormat("dd/MM/yyyy")); //Setting a date format
         picker.getEditor().setEnabled(false); //The JXDatePicker Component is essentially made of two embedded components: The calendar itself, and a FormattedTextField where the input is displayed, the .getEditor() method allows us to interact specifically with the TextField, on this case I disabled it, in order to force the user to enter a date only using the Date Picker
-        picker.getEditor().setDisabledTextColor(Color.BLACK); 
+        picker.getEditor().setDisabledTextColor(Color.BLACK);
+        picker.getEditor().setInputVerifier(inputVerifier);
         ShowHint.setHint("Seleccione la fecha de nacimiento",picker.getEditor());
         picker.setPreferredSize(new Dimension(250, 30));//After using the setEnabled(false) method, the FormattedTextField is visually disabled too, rendering the text in a transparent, blue-ish tone, this method overrides that color, making it look as if it wasn't disabled
 
