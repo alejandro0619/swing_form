@@ -3,6 +3,7 @@ import java.awt.*;
 import java.net.URL;
 import javax.swing.*;
 
+import proyecto.Verify.CalendarVerifier;
 import proyecto.Renderers.RenderBloodType;
 import proyecto.Renderers.RenderCalendar;
 import proyecto.Renderers.RenderID;
@@ -34,12 +35,14 @@ public class Proyecto extends JFrame{
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS)); //Centrar panel
 
         renderHeader(panel);
-        
+        // Estudiante
+
         new RenderEntry("Código ", "Ingrese su código", panel, new Verify.CodigoVerifier());
         new RenderID("Cédula ", "Ingrese su cédula", panel, new Verify.CedulaVerifier());
         new RenderEntry("Nombres ","Ingrese sus nombres", panel, new Verify.MaxLengthVerifier(25));
         new RenderEntry("Apellidos ","Ingrese sus apellidos", panel, new Verify.MaxLengthVerifier(25));
-        new RenderCalendar("Fecha de nacimiento ", panel);
+        CalendarVerifier calendarVerifier = new CalendarVerifier();
+        new RenderCalendar("Fecha de nacimiento:", panel, new Verify.CalendarVerifier());
         new RenderEntry("Lugar de nacimiento ","Ingrese su lugar de nacimiento", panel, new Verify.MaxLengthVerifier(25));
         new RenderEntry("Dirección de habitación ","Ingrese su dirección de habitación", panel, new Verify.MaxLengthVerifier(100));
         new RenderEntry("E-mail ","Ingrese su e-mail", panel, new Verify.EmailVerifier());
@@ -50,6 +53,26 @@ public class Proyecto extends JFrame{
         new RenderTextArea("Enfermedades:", panel, new Verify.MaxLengthAreaVerifier(500));
         new RenderTextArea("Alergias:", panel, new Verify.MaxLengthAreaVerifier(500));
         new RenderTextArea("Otras Notas:", panel, new Verify.MaxLengthAreaVerifier(500));
+
+        // Padre
+        
+        new RenderSeparator("Datos del padre: ", panel);
+
+        new RenderID("Cédula ", "Ingrese su cédula", panel, new Verify.CedulaVerifier());
+        new RenderEntry("Nombres ","Ingrese sus nombres", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Apellidos ","Ingrese sus apellidos", panel, new Verify.MaxLengthVerifier(25));
+        new RenderCalendar("Fecha de nacimiento:", panel, new Verify.CalendarVerifier());
+        new RenderEntry("Número de celular ","Ingrese su número de celular", panel, new Verify.TelefonoVerifier());
+
+        // Madre
+        new RenderSeparator("Datos de la madre: ", panel);
+        new RenderID("Cédula ", "Ingrese su cédula", panel, new Verify.CedulaVerifier());
+        new RenderEntry("Nombres ","Ingrese sus nombres", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Apellidos ","Ingrese sus apellidos", panel, new Verify.MaxLengthVerifier(25));
+        new RenderCalendar("Fecha de nacimiento:", panel, new Verify.CalendarVerifier());
+        new RenderEntry("Número de celular ","Ingrese su número de celular", panel, new Verify.TelefonoVerifier());
+
+
         
         // add a scrollpanel
         JScrollPane scrollPane = new JScrollPane(panel); //Crear un ScrollPanel

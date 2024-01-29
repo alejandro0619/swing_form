@@ -1,10 +1,17 @@
 package proyecto;
 
 import javax.swing.InputVerifier;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import java.time.Year;
+import javax.swing.InputVerifier;
+
+
 
 public class Verify {
 
@@ -32,7 +39,45 @@ public class Verify {
             }
         }
 
+// Verificador de fecha
+public static class CalendarVerifier extends InputVerifier {
+    @Override
+    public boolean verify(JComponent input) {
+        JFormattedTextField textField = (JFormattedTextField) input;
+        String fecha = textField.getText();
 
+        if (fecha.length() == 0) {
+            return true;
+        } else {
+            try {
+                String anio = fecha.substring(6, 10);
+                Integer anioInt = Integer.parseInt(anio);
+                System.out.println("EL AñO ES " + anioInt);
+
+                Year anioActual = Year.now();
+                String anioActualStr = anioActual.toString();
+                Integer anioActualInt = Integer.parseInt(anioActualStr);
+                Integer anioMax = anioActualInt - 5;
+                Integer anioMin = anioActualInt - 21;
+                System.out.println("El aniomax es " + anioMax);
+                System.out.println("El aniomin es: " + anioMin);
+
+                if (anioInt >= anioMin && anioInt <= anioMax) {
+                    return true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese el estudiante no puede ser menor de 5 años, ni mayor de 21 años", "Alerta: Dato Incorrecto", JOptionPane.WARNING_MESSAGE);
+                    textField.setText("");
+                    return false;
+                }
+            } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
+                // Handle the case where the date format is not valid
+                JOptionPane.showMessageDialog(null, "Ingrese una fecha válida", "Alerta: Dato Incorrecto", JOptionPane.WARNING_MESSAGE);
+                textField.setText("");
+                return false;
+            }
+        }
+    }
+}
     //Verificador de cedula
     public static class CedulaVerifier extends InputVerifier {
     @Override
