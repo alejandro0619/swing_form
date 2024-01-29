@@ -115,7 +115,16 @@ public static class CalendarVerifier extends InputVerifier {
             JTextField textField = (JTextField) input;
 
             if (textField.getText().length()<= maxLength) {
-                return true;
+                if (textField.getText().length() == 0) {
+                    JOptionPane.showMessageDialog(null, "El campo seleccionado no debe estar vacío", "Alerta: Dato Incorrecto", JOptionPane.WARNING_MESSAGE);
+                    textField.setText("");
+                    return false;
+
+                }
+                else {
+                    return true;
+                }
+               
             }
             
 
