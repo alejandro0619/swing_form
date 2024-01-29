@@ -18,12 +18,12 @@ public class RenderTextArea {
     public RenderTextArea(String LabelText, JPanel MainPanel, InputVerifier inputVerifier){
         JPanel RowPanel = new JPanel(); // We create a Panel for the first row
         RowPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        RowPanel.setBackground(Colors.almond);
+        RowPanel.setBackground(Colors.bg);
     
         //We create the component label
         JLabel CompLabel = new JLabel(LabelText);
         CompLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-        CompLabel.setBackground(Colors.almond);
+        CompLabel.setBackground(Colors.bg);
         CompLabel.setOpaque(true);
         CompLabel.setHorizontalAlignment(JLabel.RIGHT);
         CompLabel.setPreferredSize(new Dimension(260,30));
@@ -37,9 +37,9 @@ public class RenderTextArea {
          areaScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
          areaScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
          areaScrollPane.setPreferredSize(new Dimension(250, 90)); // Adjust the size here
-         compField.setFont(new Font("Verdana", Font.PLAIN, 20));
+         compField.setFont(new Font("Helvetica", Font.PLAIN, 20));
          compField.setInputVerifier(inputVerifier);
-     
+         compField.setBackground(Colors.formbg);
          // Add the components to the panel
          RowPanel.add(CompLabel);
          RowPanel.add(areaScrollPane); // Add the JScrollPane instead of the JTextArea directly

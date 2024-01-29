@@ -25,12 +25,12 @@ public class RenderCalendar {
         
         JPanel RowPanel = new JPanel(); // We create a Panel for the first row
         RowPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        RowPanel.setBackground(proyecto.Colors.almond);
+        RowPanel.setBackground(proyecto.Colors.bg);
     
         //We create the component label
         JLabel CompLabel = new JLabel(LabelText);
-        CompLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-        CompLabel.setBackground(Colors.almond);
+        CompLabel.setFont(new Font("Helvetica", Font.PLAIN, 20));
+        CompLabel.setBackground(Colors.bg);
         CompLabel.setOpaque(true);
         CompLabel.setHorizontalAlignment(JLabel.RIGHT);
         CompLabel.setPreferredSize(new Dimension(260,30));
@@ -44,10 +44,8 @@ public class RenderCalendar {
         picker.getEditor().setDisabledTextColor(Color.BLACK); 
         ShowHint.setHint("Seleccione su fecha de nacimiento",picker.getEditor());
         picker.setPreferredSize(new Dimension(250, 30));//After using the setEnabled(false) method, the FormattedTextField is visually disabled too, rendering the text in a transparent, blue-ish tone, this method overrides that color, making it look as if it wasn't disabled
+        picker.setBackground(Colors.formbg);
 
- 
-
-    
         // Add the components to the panel
         RowPanel.add(CompLabel);
         RowPanel.add(picker);

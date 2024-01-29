@@ -8,7 +8,6 @@ import javax.swing.JTextField;
 
 public class Verify {
 
-
     //Verificador de cedula
     public static class CodigoVerifier extends InputVerifier {
         @Override

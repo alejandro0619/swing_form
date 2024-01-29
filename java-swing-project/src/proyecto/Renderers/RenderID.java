@@ -15,12 +15,12 @@ public class RenderID {
     public RenderID(String LabelText, String EntryText, JPanel MainPanel, InputVerifier inputVerifier){
         JPanel RowPanel = new JPanel(); // We create a Panel for the first row
         RowPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
-        RowPanel.setBackground(Colors.almond);
+        RowPanel.setBackground(Colors.bg);
     
         //We create the component label
         JLabel CompLabel = new JLabel(LabelText);
-        CompLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
-        CompLabel.setBackground(Colors.almond);
+        CompLabel.setFont(new Font("Helvetica", Font.PLAIN, 20));
+        CompLabel.setBackground(Colors.bg);
         CompLabel.setOpaque(true);
         CompLabel.setHorizontalAlignment(JLabel.RIGHT);
         CompLabel.setPreferredSize(new Dimension(260,30));
@@ -31,7 +31,7 @@ public class RenderID {
         CompField.setPreferredSize(new Dimension(210, 30));
         CompField.setFont(new Font("Verdana", Font.PLAIN, 20));
         CompField.setInputVerifier(inputVerifier);
-
+        CompField.setBackground(Colors.formbg);
         String tiposCedula[] = {"V","E"};
         JComboBox tipoCedula = new JComboBox(tiposCedula);
         tipoCedula.setPreferredSize(new Dimension(35,30));
