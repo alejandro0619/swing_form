@@ -21,7 +21,7 @@ public class RenderSeparator {
         CompLabel.setFont(new Font("Verdana", Font.ITALIC, 22));
         CompLabel.setBackground(Colores.almond);
         CompLabel.setOpaque(true);
-        CompLabel.setHorizontalAlignment(JLabel.RIGHT);
+        CompLabel.setHorizontalAlignment(JLabel.CENTER);
         CompLabel.setPreferredSize(new Dimension(300,30));
         RowPanel.add(CompLabel);
         MainPanel.add(RowPanel);

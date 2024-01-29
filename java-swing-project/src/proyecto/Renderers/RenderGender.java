@@ -26,9 +26,11 @@ public class RenderGender {
         
     
         JRadioButton masculino=new JRadioButton("Masculino");
+        masculino.setBackground(Colores.almond);
         masculino.setPreferredSize(new Dimension(125,30));
             
         JRadioButton femenino=new JRadioButton("Femenino"); 
+        femenino.setBackground(Colores.almond);
         femenino.setPreferredSize(new Dimension(120,30));   
         ButtonGroup bg=new ButtonGroup();    
         
