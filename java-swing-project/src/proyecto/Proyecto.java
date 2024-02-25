@@ -3,6 +3,10 @@ import java.awt.*;
 import java.net.URL;
 import javax.swing.*;
 
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
 import proyecto.Verify.CalendarVerifier;
 import proyecto.Renderers.RenderBloodType;
 import proyecto.Renderers.RenderCalendar;
@@ -29,7 +33,18 @@ public class Proyecto extends JFrame{
         this.setResizable(false); //Establecer la ventana no modificable en tamaño
         initializeComps(); // llamar componentes
     }
+    class BackgroundPanel extends JPanel {
+        private Image bg;
     
+        @Override
+        public void paint(Graphics g) {
+            bg = new ImageIcon(getClass().getResource("/resources/bg.png")).getImage();
+            g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+            
+        }
+    }
     private void initializeComps() {
         BackgroundPanel panel = new BackgroundPanel(); //Panel
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS)); //Centrar panel
@@ -79,7 +94,7 @@ public class Proyecto extends JFrame{
         this.getContentPane().add(scrollPane); //Agregar el ScrollPanel al content panel   
     }
     private void renderHeader(BackgroundPanel MainPanel) {
-        BackgroundPanel HeaderPanel = new BackgroundPanel(); // We create a Panel for the first row
+        JPanel HeaderPanel = new JPanel(); // We create a Panel for the first row
         HeaderPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); 
         HeaderPanel.setBackground(Colors.headerbg);
         JLabel label = new JLabel("FORMULARIO DE DATOS PERSONALES");
