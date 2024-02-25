@@ -14,6 +14,8 @@ import proyecto.Renderers.RenderTextArea;
 
 
 public class Proyecto extends JFrame{
+
+
     public Proyecto() {
      
         URL iconURL = getClass().getResource("/resources/notepad.png"); //Buscar recurso del icono
@@ -36,6 +38,7 @@ public class Proyecto extends JFrame{
 
         renderHeader(panel);
         // Estudiante
+        
         new RenderSeparator("Datos del estudiante:", panel);
         new RenderEntry("Código ", "Ingrese el código de estudiante", panel, new Verify.CodigoVerifier());
         new RenderID("Cédula ", "Ingrese la cédula del estudiante", panel, new Verify.CedulaVerifier());
@@ -91,4 +94,7 @@ public class Proyecto extends JFrame{
         HeaderPanel.add(label);
         MainPanel.add(HeaderPanel);
     }
+
+
+
 }
