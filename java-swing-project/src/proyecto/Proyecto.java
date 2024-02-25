@@ -31,7 +31,7 @@ public class Proyecto extends JFrame{
     }
     
     private void initializeComps() {
-        JPanel panel = new JPanel(); //Panel
+        BackgroundPanel panel = new BackgroundPanel(); //Panel
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS)); //Centrar panel
 
         renderHeader(panel);
@@ -78,8 +78,8 @@ public class Proyecto extends JFrame{
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED); //Establecer la barra de desplazamiento horizontal
         this.getContentPane().add(scrollPane); //Agregar el ScrollPanel al content panel   
     }
-    private void renderHeader(JPanel MainPanel) {
-        JPanel HeaderPanel = new JPanel(); // We create a Panel for the first row
+    private void renderHeader(BackgroundPanel MainPanel) {
+        BackgroundPanel HeaderPanel = new BackgroundPanel(); // We create a Panel for the first row
         HeaderPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); 
         HeaderPanel.setBackground(Colors.headerbg);
         JLabel label = new JLabel("FORMULARIO DE DATOS PERSONALES");
