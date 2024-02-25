@@ -18,13 +18,14 @@ public class Libro extends JFrame {
         panel.setLayout(null);
         panel.setVisible(true);
         this.setVisible(true);
+        this.setBackground(Colors.bg);
     }
     
     
     public void paint(Graphics g){
     super.paint(g);
     Graphics2D g2d = (Graphics2D) g;
-    g2d.setStroke(new BasicStroke(2));
+    g2d.setStroke(new BasicStroke(2f));
     
     
 
@@ -40,6 +41,15 @@ public class Libro extends JFrame {
     int[] x1 = {56,192,192,208,208,72,56};
     int[] y1 = {98,98,298,282,82,82,80};
     g.fillPolygon(x1,y1,6);
+
+    g2d.setStroke(new BasicStroke(2));
+    g.setColor(Colors.sheetYellow2);
+    g.drawLine(192,98,208,82);
+    g.drawLine(192,298,208,282);    
+
+    g.setColor(Colors.borderBLue);
+    g.drawLine(50,100,50,300);
+    g.drawLine(50,300,190,300);
     }
 
     public static void main(String[] args) {

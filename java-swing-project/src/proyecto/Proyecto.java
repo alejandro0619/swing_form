@@ -44,7 +44,7 @@ public class Proyecto extends JFrame{
 
         @Override
         public void paint(Graphics g) {
-            imagen = new ImageIcon(getClass().getResource("/resources/notepad.png")).getImage();
+            imagen = new ImageIcon(getClass().getResource("/resources/books.png")).getImage();
             g.drawImage(imagen, 0,0,getWidth(),getHeight(),this);
             setOpaque(false);
             super.paint(g);
@@ -61,16 +61,16 @@ public class Proyecto extends JFrame{
         // Estudiante
         
         new RenderSeparator("Datos del estudiante:", panel);
-        new RenderEntry("Código ", "Ingrese el código de estudiante", panel, new Verify.CodigoVerifier());
-        new RenderID("Cédula ", "Ingrese la cédula del estudiante", panel, new Verify.CedulaVerifier());
-        new RenderEntry("Nombres ","Ingrese los nombres del estudiante", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Apellidos ","Ingrese los apellidos del estudiante", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Código:", "Ingrese el código de estudiante", panel, new Verify.CodigoVerifier());
+        new RenderID("Cédula:", "Ingrese la cédula del estudiante", panel, new Verify.CedulaVerifier());
+        new RenderEntry("Nombres:","Ingrese los nombres del estudiante", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Apellidos:","Ingrese los apellidos del estudiante", panel, new Verify.MaxLengthVerifier(25));
 
         new RenderCalendar("Fecha de nacimiento:", panel, new Verify.CalendarVerifier());
-        new RenderEntry("Lugar de nacimiento ","Ingrese el lugar de nacimiento del estudiante", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Dirección de habitación ","Ingrese la dirección del estudiante", panel, new Verify.MaxLengthVerifier(100));
-        new RenderEntry("E-mail ","Ingrese el e-mail del estudiante", panel, new Verify.EmailVerifier());
-        new RenderEntry("Número de celular ","Ingrese el número de celular del estudiante", panel, new Verify.TelefonoVerifier());
+        new RenderEntry("Lugar de nacimiento:","Ingrese el lugar de nacimiento del estudiante", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Dirección de habitación:","Ingrese la dirección del estudiante", panel, new Verify.MaxLengthVerifier(100));
+        new RenderEntry("E-mail:","Ingrese el e-mail del estudiante", panel, new Verify.EmailVerifier());
+        new RenderEntry("Número de celular:","Ingrese el número de celular del estudiante", panel, new Verify.TelefonoVerifier());
         new RenderGender(panel);
         new RenderBloodType(panel);
         new RenderSeparator("Notas Adicionales:", panel);
@@ -82,17 +82,17 @@ public class Proyecto extends JFrame{
         
         new RenderSeparator("Datos del padre: ", panel);
 
-        new RenderID("Cédula ", "Ingrese la cédula del padre", panel, new Verify.CedulaVerifier());
-        new RenderEntry("Nombres ","Ingrese los nombres del padre", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Apellidos ","Ingrese los apellidos del padre", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Número de celular ","Ingrese el número de celular del padre", panel, new Verify.TelefonoVerifier());
+        new RenderID("Cédula:", "Ingrese la cédula del padre", panel, new Verify.CedulaVerifier());
+        new RenderEntry("Nombres:","Ingrese los nombres del padre", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Apellidos:","Ingrese los apellidos del padre", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Número de celular:","Ingrese el número de celular del padre", panel, new Verify.TelefonoVerifier());
 
         // Madre
-        new RenderSeparator("Datos de la madre: ", panel);
-        new RenderID("Cédula ", "Ingrese la cédula de la madre", panel, new Verify.CedulaVerifier());
-        new RenderEntry("Nombres ","Ingrese los nombres de la madre", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Apellidos ","Ingrese los apellidos de la madre", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Número de celular ","Ingrese el número de celular de la madre", panel, new Verify.TelefonoVerifier());
+        new RenderSeparator("Datos de la madre:", panel);
+        new RenderID("Cédula:", "Ingrese la cédula de la madre", panel, new Verify.CedulaVerifier());
+        new RenderEntry("Nombres:","Ingrese los nombres de la madre", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Apellidos:","Ingrese los apellidos de la madre", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Número de celular:","Ingrese el número de celular de la madre", panel, new Verify.TelefonoVerifier());
 
 
         

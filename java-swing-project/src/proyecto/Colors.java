@@ -27,5 +27,6 @@ public static Color formbg = new Color(245, 248, 249, 255);
 public static Color transBlue = new Color(54,85,179, 50);
 public static Color borderBLue = new Color(54,85,179, 100);
 public static Color sheetYellow = new Color(255,184,77,50);
+public static Color sheetYellow2 = new Color(255,184,77,100);
 }
 
