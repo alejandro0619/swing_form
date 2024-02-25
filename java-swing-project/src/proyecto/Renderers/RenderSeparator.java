@@ -9,12 +9,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import proyecto.Colors;
+import proyecto.FondoPanel;
 
 public class RenderSeparator {
-        public RenderSeparator(String LabelText, JPanel MainPanel){
+        public RenderSeparator(String LabelText, JPanel MainPanel, String src){
 
-        JPanel RowPanel = new JPanel(); // We create a Panel for the first row
-        RowPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); // Set it to FlowLayout so it can be aligned horizontally
+        FondoPanel RowPanel = new FondoPanel(src); // We create a Panel for the first row
+        RowPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10)); // Set it to FlowLayout so it can be aligned horizontally
         RowPanel.setBackground(Colors.bg);
 
         //We create the component label
@@ -24,7 +25,7 @@ public class RenderSeparator {
         CompLabel.setOpaque(true);
         CompLabel.setForeground(Color.white);
         CompLabel.setHorizontalAlignment(JLabel.CENTER);
-        CompLabel.setPreferredSize(new Dimension(300,30));
+        CompLabel.setPreferredSize(new Dimension(270,30));
         RowPanel.add(CompLabel);
         MainPanel.add(RowPanel);
 }
