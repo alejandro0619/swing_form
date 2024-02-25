@@ -1,5 +1,6 @@
 package proyecto.Renderers;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -21,6 +22,7 @@ public class RenderSeparator {
         CompLabel.setFont(new Font("Helvetica", Font.ITALIC, 22));
         CompLabel.setBackground(Colors.bg);
         CompLabel.setOpaque(true);
+        CompLabel.setForeground(Color.white);
         CompLabel.setHorizontalAlignment(JLabel.CENTER);
         CompLabel.setPreferredSize(new Dimension(300,30));
         RowPanel.add(CompLabel);

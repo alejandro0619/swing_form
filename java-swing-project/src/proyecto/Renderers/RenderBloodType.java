@@ -1,7 +1,4 @@
 package proyecto.Renderers;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FlowLayout;
 import proyecto.Colors;
 import javax.swing.JPanel;
 import javax.swing.JComboBox;
@@ -18,10 +15,11 @@ public class RenderBloodType {
     
         //We create the component label
         JLabel CompLabel = new JLabel("Tipo de Sangre:");
-        CompLabel.setFont(new Font("Helvetica", Font.PLAIN, 20));
+        CompLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
         CompLabel.setBackground(Colors.bg);
         CompLabel.setOpaque(true);
-        CompLabel.setHorizontalAlignment(JLabel.RIGHT);
+        CompLabel.setForeground(Color.white);
+        CompLabel.setHorizontalAlignment(JLabel.CENTER);
         CompLabel.setPreferredSize(new Dimension(260,30));
         
         String bloodTypes[] = {"O+", "A+", "B+", "AB+", "O-", "A-", "B-", "AB-"};

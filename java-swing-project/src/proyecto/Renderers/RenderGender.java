@@ -1,5 +1,6 @@
 package proyecto.Renderers;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FlowLayout;
@@ -18,12 +19,12 @@ public class RenderGender {
     
         //We create the component label
         JLabel CompLabel = new JLabel("Sexo:");
-        CompLabel.setFont(new Font("Helvetica", Font.PLAIN, 20));
+        CompLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
         CompLabel.setBackground(Colors.bg);
         CompLabel.setOpaque(true);
-        CompLabel.setHorizontalAlignment(JLabel.RIGHT);
         CompLabel.setPreferredSize(new Dimension(260,30));
-        
+        CompLabel.setForeground(Color.white);
+        CompLabel.setHorizontalAlignment(JLabel.CENTER);
     
         JRadioButton masculino=new JRadioButton("Masculino");
         masculino.setPreferredSize(new Dimension(125,30));

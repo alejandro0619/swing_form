@@ -1,5 +1,6 @@
 package proyecto.Renderers;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
@@ -22,12 +23,13 @@ public class RenderEntry {
     
         //We create the component label
         JLabel CompLabel = new JLabel(LabelText);
-        CompLabel.setFont(new Font("Helvetica", Font.PLAIN, 20));
+        CompLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
         CompLabel.setBackground(Colors.bg);
         CompLabel.setOpaque(true);
-        CompLabel.setHorizontalAlignment(JLabel.RIGHT);
+        
         CompLabel.setPreferredSize(new Dimension(260,30));
-
+        CompLabel.setForeground(Color.white);
+        CompLabel.setHorizontalAlignment(JLabel.CENTER);
         //We create the component text 
         JTextField CompField = new JTextField();
         ShowHint.setHint(EntryText,CompField);

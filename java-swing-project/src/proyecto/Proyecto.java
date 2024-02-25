@@ -32,7 +32,7 @@ public class Proyecto extends JFrame{
         this.setLocationRelativeTo(null); // Ubicar la ventana en el centro de la pantalla
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); // Terminar la ejecucion del programa cuando se cierre la ventana 
       // set min and max size
-        this.setMinimumSize(new Dimension(640,512)); //Establecer el tamaño minimo de la ventana
+        this.setMinimumSize(new Dimension(1000,1000)); //Establecer el tamaño minimo de la ventana
         this.setMaximumSize(new Dimension(740,612)); //Establecer el tamaño maximo de la ventana
         this.setResizable(false); //Establecer la ventana no modificable en tamaño
         initializeComps(); // llamar componentes
@@ -44,8 +44,8 @@ public class Proyecto extends JFrame{
     
         @Override
         public void paint(Graphics g) {
-            bg = new ImageIcon(getClass().getResource("/resources/bg.png")).getImage();
-            g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
+            imagen = new ImageIcon(getClass().getResource("/resources/b2.png")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
             super.paint(g);
             
