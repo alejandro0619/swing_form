@@ -1,9 +1,12 @@
 package proyecto;
 import java.awt.*;
+
 import java.net.URL;
+
+
 import javax.swing.*;
 
-import proyecto.Verify.CalendarVerifier;
+
 import proyecto.Renderers.RenderBloodType;
 import proyecto.Renderers.RenderCalendar;
 import proyecto.Renderers.RenderID;
@@ -13,11 +16,15 @@ import proyecto.Renderers.RenderSeparator;
 import proyecto.Renderers.RenderTextArea;
 
 
+
 public class Proyecto extends JFrame{
 
+ 
 
     public Proyecto() {
      
+
+
         URL iconURL = getClass().getResource("/resources/notepad.png"); //Buscar recurso del icono
         Image icon = new javax.swing.ImageIcon(iconURL).getImage(); //Identificar una imagen con un recurso
         this.setIconImage(icon); //establecer un icono 
@@ -31,9 +38,23 @@ public class Proyecto extends JFrame{
         this.setResizable(false); //Establecer la ventana no modificable en tamaño
         initializeComps(); // llamar componentes
     }
+
+    class FondoPanel extends JPanel {
+        private Image imagen;
+
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/resources/notepad.png")).getImage();
+            g.drawImage(imagen, 0,0,getWidth(),getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
+
+ 
     
     private void initializeComps() {
-        JPanel panel = new JPanel(); //Panel
+        FondoPanel panel = new FondoPanel(); //Panel
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS)); //Centrar panel
 
         renderHeader(panel);
@@ -81,7 +102,7 @@ public class Proyecto extends JFrame{
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED); //Establecer la barra de desplazamiento horizontal
         this.getContentPane().add(scrollPane); //Agregar el ScrollPanel al content panel   
     }
-    private void renderHeader(JPanel MainPanel) {
+    private void renderHeader(FondoPanel MainPanel) {
         JPanel HeaderPanel = new JPanel(); // We create a Panel for the first row
         HeaderPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); 
         HeaderPanel.setBackground(Colors.headerbg);
@@ -92,6 +113,8 @@ public class Proyecto extends JFrame{
         label.setBackground(Colors.headerbg);
         label.setOpaque(true);
         HeaderPanel.add(label);
+        MainPanel.setBackground(Colors.transBlue);
+       
         MainPanel.add(HeaderPanel);
     }
 
