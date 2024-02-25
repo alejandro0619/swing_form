@@ -6,7 +6,6 @@ import java.net.URL;
 
 import javax.swing.*;
 
-
 import proyecto.Renderers.RenderBloodType;
 import proyecto.Renderers.RenderCalendar;
 import proyecto.Renderers.RenderID;
@@ -39,22 +38,22 @@ public class Proyecto extends JFrame{
         initializeComps(); // llamar componentes
     }
 
+
     class FondoPanel extends JPanel {
         private Image imagen;
-
+    
         @Override
         public void paint(Graphics g) {
-            imagen = new ImageIcon(getClass().getResource("/resources/books.png")).getImage();
-            g.drawImage(imagen, 0,0,getWidth(),getHeight(),this);
+            bg = new ImageIcon(getClass().getResource("/resources/bg.png")).getImage();
+            g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
             super.paint(g);
+            
         }
     }
-
- 
-    
     private void initializeComps() {
         FondoPanel panel = new FondoPanel(); //Panel
+
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS)); //Centrar panel
 
         renderHeader(panel);
