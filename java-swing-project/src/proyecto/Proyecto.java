@@ -1,13 +1,11 @@
 package proyecto;
 import java.awt.*;
+
 import java.net.URL;
+
+
 import javax.swing.*;
 
-import java.awt.Graphics;
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
-import proyecto.Verify.CalendarVerifier;
 import proyecto.Renderers.RenderBloodType;
 import proyecto.Renderers.RenderCalendar;
 import proyecto.Renderers.RenderID;
@@ -17,9 +15,15 @@ import proyecto.Renderers.RenderSeparator;
 import proyecto.Renderers.RenderTextArea;
 
 
+
 public class Proyecto extends JFrame{
+
+ 
+
     public Proyecto() {
      
+
+
         URL iconURL = getClass().getResource("/resources/notepad.png"); //Buscar recurso del icono
         Image icon = new javax.swing.ImageIcon(iconURL).getImage(); //Identificar una imagen con un recurso
         this.setIconImage(icon); //establecer un icono 
@@ -33,8 +37,10 @@ public class Proyecto extends JFrame{
         this.setResizable(false); //Establecer la ventana no modificable en tamaño
         initializeComps(); // llamar componentes
     }
-    class BackgroundPanel extends JPanel {
-        private Image bg;
+
+
+    class FondoPanel extends JPanel {
+        private Image imagen;
     
         @Override
         public void paint(Graphics g) {
@@ -46,22 +52,24 @@ public class Proyecto extends JFrame{
         }
     }
     private void initializeComps() {
-        BackgroundPanel panel = new BackgroundPanel(); //Panel
+        FondoPanel panel = new FondoPanel(); //Panel
+
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS)); //Centrar panel
 
         renderHeader(panel);
         // Estudiante
+        
         new RenderSeparator("Datos del estudiante:", panel);
-        new RenderEntry("Código ", "Ingrese el código de estudiante", panel, new Verify.CodigoVerifier());
-        new RenderID("Cédula ", "Ingrese la cédula del estudiante", panel, new Verify.CedulaVerifier());
-        new RenderEntry("Nombres ","Ingrese los nombres del estudiante", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Apellidos ","Ingrese los apellidos del estudiante", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Código:", "Ingrese el código de estudiante", panel, new Verify.CodigoVerifier());
+        new RenderID("Cédula:", "Ingrese la cédula del estudiante", panel, new Verify.CedulaVerifier());
+        new RenderEntry("Nombres:","Ingrese los nombres del estudiante", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Apellidos:","Ingrese los apellidos del estudiante", panel, new Verify.MaxLengthVerifier(25));
 
         new RenderCalendar("Fecha de nacimiento:", panel, new Verify.CalendarVerifier());
-        new RenderEntry("Lugar de nacimiento ","Ingrese el lugar de nacimiento del estudiante", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Dirección de habitación ","Ingrese la dirección del estudiante", panel, new Verify.MaxLengthVerifier(100));
-        new RenderEntry("E-mail ","Ingrese el e-mail del estudiante", panel, new Verify.EmailVerifier());
-        new RenderEntry("Número de celular ","Ingrese el número de celular del estudiante", panel, new Verify.TelefonoVerifier());
+        new RenderEntry("Lugar de nacimiento:","Ingrese el lugar de nacimiento del estudiante", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Dirección de habitación:","Ingrese la dirección del estudiante", panel, new Verify.MaxLengthVerifier(100));
+        new RenderEntry("E-mail:","Ingrese el e-mail del estudiante", panel, new Verify.EmailVerifier());
+        new RenderEntry("Número de celular:","Ingrese el número de celular del estudiante", panel, new Verify.TelefonoVerifier());
         new RenderGender(panel);
         new RenderBloodType(panel);
         new RenderSeparator("Notas Adicionales:", panel);
@@ -73,17 +81,17 @@ public class Proyecto extends JFrame{
         
         new RenderSeparator("Datos del padre: ", panel);
 
-        new RenderID("Cédula ", "Ingrese la cédula del padre", panel, new Verify.CedulaVerifier());
-        new RenderEntry("Nombres ","Ingrese los nombres del padre", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Apellidos ","Ingrese los apellidos del padre", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Número de celular ","Ingrese el número de celular del padre", panel, new Verify.TelefonoVerifier());
+        new RenderID("Cédula:", "Ingrese la cédula del padre", panel, new Verify.CedulaVerifier());
+        new RenderEntry("Nombres:","Ingrese los nombres del padre", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Apellidos:","Ingrese los apellidos del padre", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Número de celular:","Ingrese el número de celular del padre", panel, new Verify.TelefonoVerifier());
 
         // Madre
-        new RenderSeparator("Datos de la madre: ", panel);
-        new RenderID("Cédula ", "Ingrese la cédula de la madre", panel, new Verify.CedulaVerifier());
-        new RenderEntry("Nombres ","Ingrese los nombres de la madre", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Apellidos ","Ingrese los apellidos de la madre", panel, new Verify.MaxLengthVerifier(25));
-        new RenderEntry("Número de celular ","Ingrese el número de celular de la madre", panel, new Verify.TelefonoVerifier());
+        new RenderSeparator("Datos de la madre:", panel);
+        new RenderID("Cédula:", "Ingrese la cédula de la madre", panel, new Verify.CedulaVerifier());
+        new RenderEntry("Nombres:","Ingrese los nombres de la madre", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Apellidos:","Ingrese los apellidos de la madre", panel, new Verify.MaxLengthVerifier(25));
+        new RenderEntry("Número de celular:","Ingrese el número de celular de la madre", panel, new Verify.TelefonoVerifier());
 
 
         
@@ -93,7 +101,7 @@ public class Proyecto extends JFrame{
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED); //Establecer la barra de desplazamiento horizontal
         this.getContentPane().add(scrollPane); //Agregar el ScrollPanel al content panel   
     }
-    private void renderHeader(BackgroundPanel MainPanel) {
+    private void renderHeader(FondoPanel MainPanel) {
         JPanel HeaderPanel = new JPanel(); // We create a Panel for the first row
         HeaderPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 10)); 
         HeaderPanel.setBackground(Colors.headerbg);
@@ -104,6 +112,11 @@ public class Proyecto extends JFrame{
         label.setBackground(Colors.headerbg);
         label.setOpaque(true);
         HeaderPanel.add(label);
+        MainPanel.setBackground(Colors.transBlue);
+       
         MainPanel.add(HeaderPanel);
     }
+
+
+
 }

@@ -5,7 +5,9 @@ import java.awt.FlowLayout;
 import proyecto.Colors;
 import javax.swing.JPanel;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.awt.*;
 
 public class RenderBloodType {
 
@@ -35,4 +37,18 @@ public class RenderBloodType {
         // Render it to the main frame (panel being rendered)
         MainPanel.add(RowPanel);
     }
+
+    public class Paint extends JFrame{
+    public void paint(Graphics g, JPanel MainPanel) {
+        super.paint(g);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setStroke(new BasicStroke(25));
+         
+        //circulo derecha
+        g.drawArc(200,100,200,200,40,280);
+        //circulo izquierda
+        g.drawArc(100,100,200,200,220,280);
+        MainPanel.add(this);
+        }
+}
 }
