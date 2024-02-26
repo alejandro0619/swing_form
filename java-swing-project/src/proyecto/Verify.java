@@ -1,15 +1,13 @@
 package proyecto;
 
 import javax.swing.InputVerifier;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.time.Year;
-import javax.swing.InputVerifier;
+
 
 
 

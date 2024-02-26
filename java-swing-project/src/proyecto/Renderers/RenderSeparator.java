@@ -25,7 +25,7 @@ public class RenderSeparator {
         CompLabel.setOpaque(true);
         CompLabel.setForeground(Color.white);
         CompLabel.setHorizontalAlignment(JLabel.CENTER);
-        CompLabel.setPreferredSize(new Dimension(270,30));
+        CompLabel.setPreferredSize(new Dimension(270,40));
         RowPanel.add(CompLabel);
         MainPanel.add(RowPanel);
 }

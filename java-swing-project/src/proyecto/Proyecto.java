@@ -36,14 +36,14 @@ public class Proyecto extends JFrame{
     }
    
     private void initializeComps() {
-        FondoPanel panel = new FondoPanel("/resources/bg.png"); //Panel
+        FondoPanel panel = new FondoPanel("/resources/bg2.png"); //Panel
 
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS)); //Centrar panel
 
         renderHeader(panel);
         // Estudiante
         
-        new RenderSeparator("Datos del estudiante:", panel, "/resources/separatorbg.png");
+        new RenderSeparator("", panel, "/resources/ESTUDIANTE.png");
 
         new RenderEntry("Código:", "Ingrese el código de estudiante", panel, new Verify.CodigoVerifier());
         new RenderID("Cédula:", "Ingrese la cédula del estudiante", panel, new Verify.CedulaVerifier());
@@ -58,13 +58,13 @@ public class Proyecto extends JFrame{
         new RenderGender(panel);
         new RenderBloodType(panel);
 
-        new RenderSeparator("Notas Adicionales:", panel, "/resources/separatorbg.png");
+        new RenderSeparator("", panel, "/resources/ADICIONALES.png");
         new RenderTextArea("Enfermedades:", panel, new Verify.MaxLengthAreaVerifier(500));
         new RenderTextArea("Alergias:", panel, new Verify.MaxLengthAreaVerifier(500));
         new RenderTextArea("Otras Notas:", panel, new Verify.MaxLengthAreaVerifier(500));
 
         // Padre
-        new RenderSeparator("Datos del padre: ", panel, "/resources/separatorbg.png");
+        new RenderSeparator(" ", panel, "/resources/PADRE.png");
 
         new RenderID("Cédula:", "Ingrese la cédula del padre", panel, new Verify.CedulaVerifier());
         new RenderEntry("Nombres:","Ingrese los nombres del padre", panel, new Verify.MaxLengthVerifier(25));
@@ -72,7 +72,7 @@ public class Proyecto extends JFrame{
         new RenderEntry("Número de celular:","Ingrese el número de celular del padre", panel, new Verify.TelefonoVerifier());
 
         // Madre
-        new RenderSeparator("Datos de la madre:", panel, "/resources/separatorbg.png");
+        new RenderSeparator("", panel, "/resources/MADRE.png");
 
         new RenderID("Cédula:", "Ingrese la cédula de la madre", panel, new Verify.CedulaVerifier());
         new RenderEntry("Nombres:","Ingrese los nombres de la madre", panel, new Verify.MaxLengthVerifier(25));

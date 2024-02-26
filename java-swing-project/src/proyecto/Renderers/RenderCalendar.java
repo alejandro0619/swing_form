@@ -1,4 +1,5 @@
 package proyecto.Renderers;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
@@ -11,7 +12,6 @@ import javax.swing.InputVerifier;
 
 import proyecto.Colors;
 import proyecto.ShowHint;
-import proyecto.Verify;
 
 import java.awt.Dimension;
 import java.awt.Font;
